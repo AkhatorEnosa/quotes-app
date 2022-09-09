@@ -18,11 +18,6 @@ useEffect(()=> {
 
 const newQuote = () => {
   getQuote();
-
-  setStatus(!status);
-  setTimeout(() => {
-    setStatus(!status);
-  }, 0.2);
 }
 
 
@@ -32,7 +27,7 @@ const newQuote = () => {
           <NavBar/>
           <div className="w-full flex flex-col text-center h-screen justify-center items-center bg-[#BDE4F4] ">
             <div className='w-50 h-50 flex flex-col justify-center align-center'>
-              <span className='w-3 h-3 rounded-full p-10 bg-[#404969] mx-auto animate-my-bounce'></span>
+              <span className='w-3 h-3 rounded-full p-10 bg-[#404969] mx-auto animate-bounce'></span>
             </div>
               <p className='text-2xl uppercase tracking-wider'>Loading</p>
           </div>
