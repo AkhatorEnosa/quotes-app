@@ -13,7 +13,9 @@ const Quote = (props) => {
         </div>
       </div>
 
-        <Buttons buttonClick={props.onClickButton}/>
+        <Buttons changeButton={props.changeQuote} copyButton={props.copyText}/>
+        <span>{props.copyStatus}</span>
+        <input className="copy opacity-0 absolute" type="text" name="copy" value={props.getText}/>
     </div>
   );
 };

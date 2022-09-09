@@ -20,7 +20,6 @@ const newQuote = () => {
   getQuote();
 }
 
-
   if (quote.length === 0) {
     return (
       <div className="h-screen">
@@ -40,7 +39,9 @@ const newQuote = () => {
           <Quote
             text={quote.text} 
             author={quote.author}
-            onClickButton={newQuote}
+            changeQuote={newQuote}
+            // copyText={copyText}
+            getText={quote.text+" -"+quote.author}
             // status={status}
             />
       </div>
