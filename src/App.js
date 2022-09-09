@@ -4,7 +4,7 @@ import Quote from './containers/Quote';
 
 function App() {
 const [quote, setQuote] = useState([]);
-const [status, setStatus] = useState(false);
+// const [status, setStatus] = useState(false);
 
 const getQuote = () => {
   fetch("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
