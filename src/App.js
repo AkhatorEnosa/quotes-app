@@ -1,10 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
+import * as htmlToImage from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import NavBar from './containers/NavBar'
 import Quote from './containers/Quote';
 
 function App() {
 const [quote, setQuote] = useState([]);
 // const [status, setStatus] = useState(false);
+const handleCapture = () => {
+  htmlToImage.toJpeg(document.getElementById('node'), { quality: 0.95 })
+    .then(function (dataUrl) {
+      var link = document.createElement('a');
+      link.download = 'screenshot-from-kwota.jpeg';
+      link.href = dataUrl;
+      link.click();
+    });
+}
 
 const getQuote = () => {
   fetch("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
@@ -35,15 +46,16 @@ const newQuote = () => {
   } else {
     return (
       <div className="h-screen">
+        <div id="node">
           <NavBar/>
-          <Quote
-            text={quote.text} 
-            author={quote.author}
-            changeQuote={newQuote}
-            // copyText={copyText}
-            getText={quote.text+" -"+quote.author}
-            // status={status}
-            />
+            <Quote
+              text={quote.text} 
+              author={quote.author}
+              tagName={quote.tag}
+              changeQuote={newQuote}
+              captureButton={handleCapture}
+              />
+        </div>
       </div>
     )
   }
