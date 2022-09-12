@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import * as htmlToImage from 'html-to-image';
-import { toJpeg } from 'html-to-image';
 import NavBar from './containers/NavBar'
 import Quote from './containers/Quote';
 

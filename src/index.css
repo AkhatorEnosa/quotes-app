@@ -11,7 +11,7 @@ body {
   background-color: #BDE4F4;
 }
 
-.logo {
+.logo, .backdrop {
   font-family: 'Ms Madi', cursive;
 }
 
