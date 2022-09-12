@@ -4,7 +4,7 @@ import Buttons from './Buttons';
 const Quote = (props) => {
   return (
       <div className='w-full bg-[#BDE4F4] flex flex-col items-center px-6 pb-20'>
-        <div className='h-50 flex absolute text-[#404969] opacity-5 text-[10rem] pl-20 backdrop -rotate-12 text-center -mt-5 text-justify mx-auto justify-center items-center'>
+        <div className='max-h-[650px] absolute text-[#404969] overflow-clip opacity-5 text-[10rem] backdrop -rotate-12 text-center top-2 mx-auto'>
           <p>{props.text}</p>
         </div>
 
