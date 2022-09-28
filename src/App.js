@@ -50,7 +50,7 @@ const newQuote = () => {
             <Quote
               text={quote[0].content} 
               author={quote[0].author}
-              tagName={quote[0].tag[0]}
+              tagName={quote[0].tags[0]}
               changeQuote={newQuote}
               captureButton={handleCapture}
               />
