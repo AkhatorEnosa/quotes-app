@@ -48,7 +48,7 @@ const newQuote = () => {
         <div id="node">
           <NavBar/>
             <Quote
-              text={quote[0]} 
+              text={quote[0].content} 
         
               changeQuote={newQuote}
               captureButton={handleCapture}
