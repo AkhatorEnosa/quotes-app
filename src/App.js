@@ -49,8 +49,8 @@ const newQuote = () => {
           <NavBar/>
             <Quote
               text={quote} 
-              author={quote.author}
-              tagName={quote.tag[0]}
+              author={quote}
+              tagName={quote}
               changeQuote={newQuote}
               captureButton={handleCapture}
               />
