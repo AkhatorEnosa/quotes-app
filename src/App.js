@@ -24,7 +24,7 @@ const getQuote = () => {
 
 useEffect(()=> {
   getQuote()
-}, []);
+}, {});
 
 const newQuote = () => {
   getQuote();
@@ -49,8 +49,7 @@ const newQuote = () => {
           <NavBar/>
             <Quote
               text={quote} 
-              author={quote}
-              tagName={quote}
+        
               changeQuote={newQuote}
               captureButton={handleCapture}
               />
