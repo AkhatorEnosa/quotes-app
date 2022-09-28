@@ -19,7 +19,7 @@ const handleCapture = () => {
 const getQuote = () => {
   fetch("https://api.quotable.io/random")
   .then(response => response.json())
-  .then(data => setQuote(data.content));
+  .then(data => setQuote([data] ));
 };
 
 useEffect(()=> {
@@ -48,7 +48,7 @@ const newQuote = () => {
         <div id="node">
           <NavBar/>
             <Quote
-              text={quote} 
+              text={quote[0].text } 
         
               changeQuote={newQuote}
               captureButton={handleCapture}
