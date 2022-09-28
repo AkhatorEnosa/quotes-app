@@ -19,7 +19,7 @@ const handleCapture = () => {
 const getQuote = () => {
   fetch("https://api.quotable.io/random")
   .then(response => response.json())
-  .then(data => setQuote("data[0]"));
+  .then(data => setQuote(data));
 };
 
 useEffect(()=> {
