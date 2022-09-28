@@ -17,9 +17,9 @@ const handleCapture = () => {
 }
 
 const getQuote = () => {
-  fetch("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
+  fetch("https://api.quotable.io/random")
   .then(response => response.json())
-  .then(data => setQuote(data.quotes[0]));
+  .then(data => setQuote(data));
 };
 
 useEffect(()=> {
@@ -48,9 +48,9 @@ const newQuote = () => {
         <div id="node">
           <NavBar/>
             <Quote
-              text={quote.text} 
+              text={quote.content} 
               author={quote.author}
-              tagName={quote.tag}
+              tagName={quote.tag[0]}
               changeQuote={newQuote}
               captureButton={handleCapture}
               />
