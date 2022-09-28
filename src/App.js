@@ -48,7 +48,7 @@ const newQuote = () => {
         <div id="node">
           <NavBar/>
             <Quote
-              text={quote.content} 
+              text={quote} 
               author={quote.author}
               tagName={quote.tag[0]}
               changeQuote={newQuote}
