@@ -38,7 +38,7 @@ const newQuote = () => {
             <div className='w-50 h-50 flex flex-col justify-center align-center'>
               <span className='md:w-3 md:h-3 w-[10px] h-[10px] p-6 bg-[#404969] mx-auto animate-spin'></span>
             </div>
-              <p className='text-2xl uppercase tracking-wider'>Loading</p>
+              <p className='md:text-2xl text-sm tracking-wider m-6'>Loading</p>
           </div>
       </div>
     )
