@@ -36,7 +36,7 @@ const newQuote = () => {
           <NavBar/>
           <div className="w-full flex flex-col text-center h-screen justify-center items-center bg-[#BDE4F4] ">
             <div className='w-50 h-50 flex flex-col justify-center align-center'>
-              <span className='md:w-3 md:h-3 w-1 h-1 rounded-full p-10 bg-[#404969] mx-auto animate-bounce'></span>
+              <span className='md:w-3 md:h-3 w-[20px] h-[20px] p-10 bg-[#404969] mx-auto animate-bounce'></span>
             </div>
               <p className='text-2xl uppercase tracking-wider'>Loading</p>
           </div>
