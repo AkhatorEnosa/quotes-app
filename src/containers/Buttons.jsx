@@ -7,9 +7,9 @@ const Buttons = (props) => {
         New quote
       </button>
       <button
-        className="bg-[#f75656] text-xs md:text-base px-4 py-3 rounded-md text-white shadow-md hover:text-white hover:bg-[#ce1a1a] duration-300 mx-5"
+        className="bg-[#24cb2f] text-xs md:text-base px-4 py-3 rounded-md text-white shadow-md hover:text-white hover:bg-[#18ae47] duration-300 mx-5"
         onClick={props.capture}>
-        Take Screenshot
+        Download Screenshot
       </button>
     </div>
   );
