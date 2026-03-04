@@ -1,36 +1,46 @@
 import React, {useState, useEffect } from 'react';
 import * as htmlToImage from 'html-to-image';
-import NavBar from './containers/NavBar'
-import Quote from './containers/Quote';
+import NavBar from './components/NavBar'
+import Quote from './components/Quote';
 
 function App() {
-const [quote, setQuote] = useState([]);
-// const [status, setStatus] = useState(false);
-const handleCapture = () => {
-  htmlToImage.toJpeg(document.getElementById('node'), { quality: 0.95 })
-    .then(function (dataUrl) {
-      var link = document.createElement('a');
-      link.download = 'screenshot-from-kwota.jpeg';
-      link.href = dataUrl;
-      link.click();
-    });
-}
+  const [quote, setQuote] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-const getQuote = () => {
-  fetch("https://api.quotable.io/random")
-  .then(response => response.json())
-  .then(data => setQuote([data] ));
-};
+  const handleCapture = () => {
+    htmlToImage.toJpeg(document.getElementById('node'), { quality: 0.95 })
+      .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'screenshot-from-kwota.jpeg';
+        link.href = dataUrl;
+        link.click();
+      });
+  }
 
-useEffect(()=> {
-  getQuote()
-}, [] );
+  const getQuote = () => {
+    setLoading(true);
+    try {
+      const res = fetch("https://random-quotes-freeapi.vercel.app/api/random")
+      .then(response => response.json())
+      .then(data => setQuote(data));
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+      setLoading(false);
+    }
+  };
 
-const newQuote = () => {
-  getQuote();
-}
+  useEffect(()=> {
+    getQuote()
+  }, []);
 
-  if (quote.length === 0) {
+  const newQuote = () => {
+    getQuote();
+  }
+
+  if (loading || quote.length === 0) {
     return (
       <div className="h-screen">
           <NavBar/>
@@ -42,15 +52,24 @@ const newQuote = () => {
           </div>
       </div>
     )
+  } else if (error) {
+    return (
+      <div className="h-screen">
+        <NavBar/>
+        <div className="w-full flex flex-col text-center h-screen justify-center items-center bg-[#BDE4F4] ">
+          <p className='md:text-2xl text-md tracking-wider m-6'>An error occurred while fetching the quote. Please try again later.</p>
+        </div>
+      </div>
+    )
   } else {
     return (
       <div className="h-screen">
         <div id="node">
           <NavBar/>
             <Quote
-              text={quote[0].content} 
-              author={quote[0].author}
-              tagName={quote[0].tags[0]}
+              text={quote.quote} 
+              author={quote.author}
+              // tagName={quote[0].tags[0]}
               changeQuote={newQuote}
               captureButton={handleCapture}
               />

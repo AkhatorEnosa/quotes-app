@@ -20,9 +20,9 @@ const Quote = (props) => {
                 <p className='text-[#FF7F50] author tracking-widest uppercase text-center'>-  {props.author}</p>
               </div>
 
-              <div className='flex justify-end my-4 mx-0 text-[0.6rem] uppercase px-2 shadow-sm'>
+              {/* <div className='flex justify-end my-4 mx-0 text-[0.6rem] uppercase px-2 shadow-sm'>
                 <p className='bg-slate-400 w-fit text-[#BDE4F4] p-1 rounded-sm'>{props.tagName}</p>
-              </div>
+              </div> */}
           </div>
 
             <Buttons changeButton={props.changeQuote} capture={props.captureButton}/>
